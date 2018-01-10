@@ -5,17 +5,16 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.Email;
 
 
 @Entity
@@ -47,9 +46,9 @@ public class Patient {
 
 	private String diagnosis;
 
-	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "species_id")
-	private Species species;
+	private String  species;
+	
+	private String sex;
 
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
 	private List<Visit> visits = new ArrayList<Visit>();
@@ -128,12 +127,22 @@ public class Patient {
 		this.diagnosis = diagnosis;
 	}
 
-	public Species getSpecies() {
+	
+
+	public String getSpecies() {
 		return species;
 	}
 
-	public void setSpecies(Species species) {
+	public void setSpecies(String species) {
 		this.species = species;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public List<Visit> getVisits() {

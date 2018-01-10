@@ -35,10 +35,13 @@
               <a class="nav-link" href="<% out.print(request.getContextPath()); %>/register">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Contact</a>
+              <a class="nav-link" href="<% out.print(request.getContextPath()); %>/service">Service</a>
             </li>
              <li class="nav-item">
               <a class="nav-link" href="<% out.print(request.getContextPath()); %>/show">Your account</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="<% out.print(request.getContextPath()); %>/showAll">Vet Panel</a>
             </li>
           </ul>
         </nav>
@@ -54,7 +57,7 @@
           <p><a class="btn btn-lg btn-success" href="<% out.print(request.getContextPath()); %>/login" role="button">Sign up!</a></p>
         </div>
 
-        <div class="row marketing">
+      <!--   <div class="row marketing">
           <div class="col-lg-6">
             <h4>Subheading</h4>
             <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
@@ -66,7 +69,7 @@
             <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
           </div>
 
-        </div>
+        </div> -->
 
       </main>
 

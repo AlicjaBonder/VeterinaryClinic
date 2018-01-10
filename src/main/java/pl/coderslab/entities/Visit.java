@@ -1,6 +1,8 @@
 package pl.coderslab.entities;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +22,7 @@ public class Visit {
 	
 //	@NotNull
 //	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date date;
+	private LocalDate date;
 	
 //	@Min(8)
 //	@Max(20)
@@ -33,6 +35,10 @@ public class Visit {
 	@ManyToOne
 	@JoinColumn(name="patient_id")
 	private Patient patient;
+	
+	@ManyToOne
+	@JoinColumn(name="doctor_id")
+	private Doctor doctor;
 	
 	private String descriptionOfVisit;
 
@@ -52,12 +58,22 @@ public class Visit {
 		this.id = id;
 	}
 
-	public Date getDate() {
+	
+
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 
 	public int getHour() {

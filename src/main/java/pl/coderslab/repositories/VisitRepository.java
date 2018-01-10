@@ -1,6 +1,7 @@
 package pl.coderslab.repositories;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,6 +17,6 @@ public interface VisitRepository extends JpaRepository<Visit, Long>{
 	List<Visit> customFindByDateAndTime();
 	
 	@Query("SELECT v FROM Visit v WHERE v.date >=:todayParam ORDER BY date asc, hour asc")
-	List<Visit> customFutureVisits(@Param("todayParam") Date todayParam);
+	List<Visit> customFutureVisits(@Param("todayParam") LocalDate todayParam);
 
 }
