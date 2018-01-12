@@ -38,11 +38,6 @@ public class VisitController {
 	
 	@Autowired
 	ServiceRepository serviceRepo;
-//	@RequestMapping("")
-//	public String viewVisits(Model model) {
-//		model.addAttribute("visits", visitRepository.customFutureVisits(new Date((new java.util.Date()).getTime())));
-//		return "calendar";		
-//	}
 	
 	@GetMapping("/visit/add/{id}")
 	public String add(@PathVariable long id, Model model) {
@@ -58,18 +53,18 @@ public class VisitController {
 
 			return "addVisitForm";
 		}
-		List<Visit> visits = visitRepo.findAll();
-		for(Visit v : visits) {
-			if(v.getDate().equals(visit.getDate()) && v.getHour()==visit.getHour()) {
-				model.addAttribute("message", "Chosen term is not available. Please select a different one.");
-				return "add_visit_form";
-			}
-		}
+//		List<Visit> visits = visitRepo.findAll();
+//		for(Visit v : visits) {
+//			if(v.getDate().equals(visit.getDate()) && v.getHour()==visit.getHour()) {
+//				model.addAttribute("message", "Chosen term is not available. Please select a different one.");
+//				return "addVisitForm";
+//			}
+//
 		
 		visit.setPatient(patientRepo.findOne(id));
 		
 		visitRepo.save(visit);
-		return "redirect:/";
+		return "redirect:/show";
 	}
 
 	@ModelAttribute("services")
@@ -80,9 +75,5 @@ public class VisitController {
 	Collection<Doctor> getDoctors(){
 		return doctorRepo.findAll();
 	}
-	@RequestMapping("/calendar")
-	public String viewVisits(Model model) {
-		//model.addAttribute("visits", visitRepo.customFutureVisits(new LocalDate((new java.time.LocalDate()).getTime())));
-		return "calendar";		
-	}
+	
 }

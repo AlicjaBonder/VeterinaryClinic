@@ -19,6 +19,7 @@
 	integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
 	crossorigin="anonymous"></script>
     <title>Veterinary Clinic</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
 
   </head>
 
@@ -41,7 +42,7 @@
               <a class="nav-link" href="<% out.print(request.getContextPath()); %>/show">Your account</a>
             </li>
               <li class="nav-item">
-              <a class="nav-link" href="<% out.print(request.getContextPath()); %>/showAll">Vet Panel</a>
+              <a class="nav-link" href="<% out.print(request.getContextPath()); %>/calendar">Vet Panel</a>
             </li>
           </ul>
         </nav>

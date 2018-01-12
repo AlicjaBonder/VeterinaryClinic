@@ -22,6 +22,7 @@ public class Visit {
 	
 //	@NotNull
 //	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//NotUpdate
 	private LocalDate date;
 	
 //	@Min(8)

@@ -6,44 +6,69 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+<link rel="stylesheet" type="text/css" href="static/css/style2.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+	integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+	integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+	crossorigin="anonymous"></script>
     
 </head>
 <body>
-
-	<table style="border:solid 1px black">
+<div class="jumbotron">
+	<h2 class="text-center"><b>DOCUMENTATION</b></h2>
+</div>
+<div class="container">
+	<div class="row">
+	<br>
+			<hr class="style-one">
+			<br>
+			
+			<table class="table table-hover table-bordered diagnosisTbl">
+				<tr>
+					<th colspan="5" class="text-center">HISTORY OF PACIENTS</th>
+				</tr>
+				
+				<tr>
+					<th>patient Name</th>
+					<th>owner Lastname</th>
+					<th>Email</th>
+					<th>phone</th>
+					<th>Species</th>
+					<th>Sex</th>
+					<th>diagnosis</th>
+					</tr>
+					<c:forEach items="patients" var="p">
+					<tr>
+						<td>${p.patientName}</td>
+						<td>${p.ownerLastname}</td>
+						<td>${p.email}</td>
+						<td>${p.species}</td>
+						<td>${p.sex}</td>
+						<td>${p.diagnosis}</td>
 	
-	<c:forEach items="${patients}" var="p">
-	<tr>
-		<th style="border:solid 1px black">patient Name </th>
-		<th style="border:solid 1px black">owner Lastname </th>
-		<th style="border:solid 1px black">Email </th>
-			<th style="border:solid 1px black">phone</th>
-		<th style="border:solid 1px black">Species </th>
-		<th style="border:solid 1px black">Sex </th>
-			<th style="border:solid 1px black">Street</th>
-		<th style="border:solid 1px black">City</th>
-		<th style="border:solid 1px black">Post code </th>
-			<th style="border:solid 1px black">diagnosis </th>
-	</tr>
-	<tr>
-		<td style="border:solid 1px black">${p.patientName}</td>
-		<td style="border:solid 1px black">${p.ownerLastname}</td>
-		<td style="border:solid 1px black">${p.email}</td>
-		<td style="border:solid 1px black">${p.phone}</td>
-		<td style="border:solid 1px black">${p.species}</td>
-		<td style="border:solid 1px black">${p.sex}</td>
-		<td style="border:solid 1px black">${p.street}</td>
-		<td style="border:solid 1px black">${p.city}</td>
-		<td style="border:solid 1px black">${p.postcode}</td>
-		<td style="border:solid 1px black">${p.diagnosis}</td>
-	
-	</tr>
-		</c:forEach>
-			</table> 
+					</tr>
+					</c:forEach>
+					</table>
+					</div>
+					</div>
+						
 
 
 
-          
 </body>
+
 </html>
+
+

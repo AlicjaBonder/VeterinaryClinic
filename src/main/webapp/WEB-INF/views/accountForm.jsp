@@ -31,26 +31,41 @@
 			<div class="col-sm-3">
 				<h2 class="text-center">PATIENT DATA</h2>
 
-				${patient.patientName} <br>
+				Patient name:<p>${patient.patientName}<p>
+				 <br>
+				 Owner last name:
 				<p>${patient.ownerLastname}</p>
 				<br>
+				Email:
 				<p>${patient.email}</p>
 				<br>
-				<p>${patient.diagnosis}</p>
-				<br>
-				<p>${patient.phone}</p>
-				<br>
+				Species:
 				<p>${patient.species}</p>
 				<br>
+				Sex:
 				<p>${patient.sex}</p>
 				<br>
-				<p>${patient.city}</p>
-				<br>
-				<p>${patient.postcode}</p>
-				<br>
+				Street:
 				<p>${patient.street}</p>
 				<br>
-				<p>
+				City:
+				<p>${patient.city}</p>
+				<br>
+				Post code:
+				<p>${patient.postcode}</p>
+				<br>
+				Phone:
+				<p>${patient.phone}</p>
+				<br>
+				Diagnosis:
+				<p>${patient.diagnosis}</p>
+				<br>
+
+				
+				<c:forEach items="${visits}" var="v">
+				<p>Visit: Date:${v.date} Hour: ${v.hour}           Description: ${v.descriptionOfVisit} </p>
+				
+				</c:forEach>
 					<a href="<c:url value="/visit/add/${patient.id}"/>"
 						class="btn btn-default"> ADD NEW VISIT <span
 						class="glyphicon glyphicon-plus-sign"></span>

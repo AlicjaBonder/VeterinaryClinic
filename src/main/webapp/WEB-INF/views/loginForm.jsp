@@ -9,39 +9,39 @@
 <title>Insert title here</title>
 <link rel="icon" href="https://getbootstrap.com/favicon.ico">
  <!-- Bootstrap core CSS -->
-    <link href="./Signin Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./Signin Template for Bootstrap_files/signin.css" rel="stylesheet">
+    <link href="static/css/signin.css" rel="stylesheet">
 </head>
 <body>
- <%-- <div class="container">
-
+ <div class="container">
+<form method="post" action="login">
       <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
-        <form method="post">
+        
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <input type="text"  name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit"value="Log in">Sign in</button>
+        <input class="btn btn-lg btn-primary btn-block" type="submit"value="Log in"/>
       </form>
-
-    </div> <!-- /container --> --%>
+	</form>
+    </div> <!-- /container -->
   
-	${info}
-	<form method="post">
+	
+	<%-- <form method="post">
 		email: <input type="text" name="email"/><br>
 		
 		password:<input type="text" name="password"/><br>
 		
 		<input type="submit" value="Log in">
-	</form>
+	</form> --%>
 
 </body>
 </html>
