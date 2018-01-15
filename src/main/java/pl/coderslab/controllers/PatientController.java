@@ -39,7 +39,7 @@ public class PatientController {
 	@GetMapping("/showPatient/{id}")
 	public String showDetailsId(Model model,@PathVariable long id) {
 		model.addAttribute("p", patientRepo.findOne(id));
-		model.addAttribute("visits", visitRepo.findAll());
+		model.addAttribute("visits", visitRepo.findByPatientId(id));
 		return "showDetails";
 	}
 	

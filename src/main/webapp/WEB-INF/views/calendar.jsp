@@ -19,10 +19,7 @@
 
       <h1>CALENDAR</h1>
       <p class="lead">View recently visits</p>
-
-      <h3>Five grid tiers</h3>
-      <p>There are five tiers to the Bootstrap grid system, one for each range of devices we support. Each tier starts at a minimum viewport size and automatically applies to the larger devices unless overridden.</p>
-      
+		<a href="<% out.print(request.getContextPath()); %>/showAll">Show all patient</a>
          <div class="row">
         <div class="col-4">DATE</div>
         <div class="col-4">TIME</div>

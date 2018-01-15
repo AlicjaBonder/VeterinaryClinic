@@ -26,81 +26,6 @@
 	integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
 	crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-	crossorigin="anonymous"></script>
-<script>
-	$(function() {
-
-		var $diagnosisTbl = $('table.diagnosisTbl');
-
-		$diagnosisTbl.delegate('button.diagnosis', 'click', function() {
-
-			var $div = $(this).closest('tr').find('div');
-
-			if ($div.css('display') == 'none') {
-				$div.css('display', 'block').hide().slideDown('slow');
-			} else {
-				$div.css('display', 'none').show().slideUp('slow');
-			}
-
-		})
-
-		$diagnosisTbl.delegate('button.submitDiagnosis', 'click', function() {
-
-			self = $(this);
-			$divForm = $(this).closest('div');
-
-			var visit = {
-				id : $divForm.find('[name=id]').val(),
-				
-				descriptionOfVisit : $divForm.find('[name=descriptionOfVisit]').val(),
-				/* hour : $divForm.find('[name=hour]').val(),
-				date : $divForm.find('[name=date]').val(),
-				doctor : {
-					id : $divForm.find('[name=doctor_id]').val()
-				},
-				patient : {
-					id : $divForm.find('[name=patient_id]').val()
-				},
-				service : {
-					id : $divForm.find('[name=service_id]').val()
-				} */
-
-			}
-
-			if (visit.descriptionOfVisit != '') {
-
-				$.ajax({
-					
-				 url : 'details/' + self.attr('data-id'), 
-					method : 'POST',
-					data : JSON.stringify(visit),
-					dataType : 'json',
-					contentType : 'application/json'
-				}).done(
-						function(response) {
-							console.log(response);
-							self.closest('td').find('span.diagnosis').text(
-									$divForm.find('[name=descriptionOfVisit]')
-											.val());
-							$divForm.css('display', 'none').show().slideUp(
-									'slow');
-
-						}).fail(function(response) {
-					console.log(response);
-					alert('Error while adding diagnosis/description.');
-				})
-
-			} else {
-				alert('The field cannot be blank.');
-			}
-
-		})
-
-	})
-</script>
-
 </head>
 <body>
 	<div class="jumbotron">
@@ -115,14 +40,23 @@
 				<b>PATIENT DATA</b>
 			</h4>
 			<div class="col-sm-4">
+				Patient name:
 				<p>${p.patientName}</p>
+				Owner lastname:
 				<p>${p.ownerLastname}</p>
+				Email:
 				<p>${p.email}</p>
+				Species:
 				<p>${p.species}</p>
+				Sex:
 				<p>${p.sex}</p>
+				Phone:
 				<p>${p.phone}</p>
+				Street:
 				<p>ul. ${p.street}</p>
+				Postcode:
 				<p>${p.postcode}</p>
+				City:
 				<p>${p.city}</p>
 				<p>
 					<b>Basic diagnosis:</b> <br>${p.diagnosis}
@@ -132,7 +66,7 @@
 			<div class="col-sm-8">
 
 				<table class="table table-hover table-bordered diagnosisTbl">
-					
+
 					<tr>
 						<th colspan="3" class="text-center">HISTORY OF TREATMENT</th>
 					<tr>
@@ -167,7 +101,7 @@
 								</div></td>
 							<td class="text-center">
 								<button class="btn btn-default diagnosis">
-									<span class="glyphicon glyphicon-edit"/>
+									<span class="glyphicon glyphicon-edit" />
 								</button>
 							</td>
 
@@ -189,7 +123,11 @@
 
 
 
-
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+	<script type="text/javascript"
+		src="http://localhost:8080/Veterinary_clinic/static/js/patient_details.js?newversion"></script>
 
 
 

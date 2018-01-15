@@ -120,25 +120,6 @@ public class AdminController {
 	
 	
 	
-//	@PostMapping("showPatient/details/{id}")
-//	@ResponseBody
-//	public Visit editVisit(@RequestBody String visit) {
-//		ObjectMapper mapper = new ObjectMapper();		
-//		try {
-//			Visit editedVisit = mapper.readValue(visit, Visit.class);
-//			visitRepo.save(editedVisit);	
-//			return editedVisit;
-//		} catch (JsonParseException e) {
-//			e.printStackTrace();
-//		} catch (JsonMappingException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}		
-//		return null;
-//	}
-	
-	
 
 	@RequestMapping("/calendar")
 	public String viewVisits(Model model) {
