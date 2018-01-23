@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="container">
-
+<a href="<% out.print(request.getContextPath()); %>/">Back</a>
       <h1>CALENDAR</h1>
       <p class="lead">View recently visits</p>
 		<a href="<% out.print(request.getContextPath()); %>/showAll">Show all patient</a>

@@ -44,21 +44,21 @@ public class PatientController {
 	}
 	
 	
-	 @GetMapping("/editPatient/{id}")
-	 public String patientEdit(@PathVariable long id, Model model) {
-	 model.addAttribute("patient", patientRepo.findOne(id));
-	 return "editPatient";
-	 }
-	 @PostMapping("/editPatient/{id}")
-	 public String patientEdit(@Valid Patient patient, BindingResult result) {
-	 if(result.hasErrors())
-	 {
-	 return "editPatient";
-	
-	 }
-	 patientRepo.save(patient);
-	 return "redirect:/show";
-	 }
+//	 @GetMapping("/edit/{id}")
+//	 public String patientEdit(@PathVariable long id, Model model) {
+//	 model.addAttribute("patient", patientRepo.findOne(id));
+//	 return "editPatient";
+//	 }
+//	 @PostMapping("/edit/{id}")
+//	 public String patientEdit(@Valid Patient patient, BindingResult result) {
+//	 if(result.hasErrors())
+//	 {
+//	 return "editPatient";
+//	
+//	 }
+//	 patientRepo.save(patient);
+//	 return "redirect:/show";
+//	 }
 	
 
 	

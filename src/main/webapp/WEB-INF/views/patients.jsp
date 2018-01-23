@@ -17,7 +17,7 @@
 <body>
 <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="https://getbootstrap.com/docs/4.0/examples/dashboard/#">Dashboard</a>
+        <a class="navbar-brand" href="<% out.print(request.getContextPath()); %>/calendar">Calendar</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/dashboard/#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="<% out.print(request.getContextPath()); %>/add">Add patients <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/dashboard/#">Settings</a>
@@ -37,38 +37,15 @@
               <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/dashboard/#">Help</a>
             </li>
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          <form method="get" action="search">
+		Search a patient:<input type="text" name="patientName">
+		<input type="submit" value="Search" />
+	</form>
         </div>
       </nav>
     </header>
     <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-          <h1>Dashboard</h1>
-
-          <section class="row text-center placeholders">
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <div class="text-muted">Something else</div>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </section>
+        
     <h2>All patients</h2>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -79,16 +56,22 @@
                   <th>Species</th>
                   <th>Sex</th>
                   <th>Diagnosis</th>
+                  <th>Details</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
-              <c:forEach items="patients" var="p">
+              <c:forEach items="${patients}" var="p">
                 <tr>
             			<td>${p.patientName}</td>
 						<td>${p.ownerLastname}</td>
 						<td>${p.species}</td>
 						<td>${p.sex}</td>
 						<td>${p.diagnosis}</td>
+						<td><a href="<% out.print(request.getContextPath()); %>/showPatient/${p.id}">Details</a></td>
+						<td><a href="<% out.print(request.getContextPath()); %>/editPatient/${p.id}">Edit</a></td>
+						<td><a href="<% out.print(request.getContextPath()); %>/delete/${p.id}">Delete</a>
                 </tr>
                 </c:forEach>
                 

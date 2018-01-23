@@ -9,14 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -83,21 +75,21 @@ public class AdminController {
 		return "redirect:/showAll";
 	}
 	
-//	@GetMapping("/edit/{id}")
-//	public String patientEdit(@PathVariable long id, Model model) {
-//		model.addAttribute("patient", patientRepo.findOne(id));
-//		return "editPatient";
-//	}
-//	@PostMapping("/edit/{id}")
-//	public String patientEdit(@Valid Patient patient, BindingResult result) {
-//		if(result.hasErrors())
-//		{
-//			return "editPatient";
-//					
-//		}
-//		patientRepo.save(patient);
-//		return "redirect:/showAll";
-//	}
+	@GetMapping("/editPatient/{id}")
+	public String patientEdit(@PathVariable long id, Model model) {
+		model.addAttribute("patient", patientRepo.findOne(id));
+		return "editPatient";
+	}
+	@PostMapping("/editPatient/{id}")
+	public String patientEdit(@Valid Patient patient, BindingResult result) {
+		if(result.hasErrors())
+		{
+			return "editPatient";
+					
+		}
+		patientRepo.save(patient);
+		return "redirect:/showAll";
+	}
 	
 	
 	@GetMapping("showPatient/details/{id}")
@@ -144,5 +136,18 @@ public class AdminController {
 		return "redirect:/calendar";
 		
 		
+	}
+	
+	@GetMapping("/search")
+	public String findBook(@RequestParam String patientName, Model model) {
+		if(patientName.equals(""))
+		{
+			model.addAttribute("patients",patientRepo.findAll());
+		}else {
+			model.addAttribute("patients",patientRepo.findByPatientName(patientName));
+			
+		}
+		
+		return "patients";
 	}
 }
