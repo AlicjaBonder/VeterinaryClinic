@@ -1,6 +1,6 @@
 # VeterinaryClinic
 Final Project form bootcamp programming Coderslab
-Using technology: Spring, Hibernate, AJAX,JSON.
+Using technology: Spring, Hibernate, AJAX,JSON, JavaScript, JSP.
 
 This application was create to managment Veterinary clinic. Basic functionality: user can registration an account, logged to to own account and make an appointment.Also user has access to preview of documentation of the visit.
 
